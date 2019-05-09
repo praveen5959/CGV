@@ -704,10 +704,15 @@ void win1()
 void win2()
 {
 	// glClearColor(1, 1, 1, 1);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0, 7, -1, 4, -1, 1);
-	glMatrixMode(GL_MODELVIEW);
+	// glMatrixMode(GL_PROJECTION);
+	// glLoadIdentity();
+	// glOrtho(0, 7, -1, 4, -1, 1);
+	// glMatrixMode(GL_MODELVIEW);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glShadeModel(GL_SMOOTH);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_NORMALIZE);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	if (day)
@@ -861,12 +866,8 @@ int main(int argc, char **argv)
 	gluOrtho2D(0, 1500, 0, 750);
 	glutDisplayFunc(display);
 	// init();
+	// doInit();
 	createMenu();
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	glShadeModel(GL_SMOOTH);
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_NORMALIZE);
 
 	glutTimerFunc(200, doFrame, 0);
 	glutKeyboardFunc(mykey);
