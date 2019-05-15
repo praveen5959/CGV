@@ -649,14 +649,14 @@ void background1()
 	glTranslatef(0.0f, 0.0f, -13.0f);
 	glColor3f(0.8, 0.0, 0.2);
 
-	if (help1)
-	{
-		help();
-	}
-	else
-	{
+	//if (help1)
+	//{
+	//	help();
+	//}
+	//else
+	//{
 		draw();
-	}
+	//}
 
 	GLfloat mat_ambient[] = {0.0f, 1.0f, 2.0f, 1.0f};
 	GLfloat mat_diffuse[] = {0.0f, 1.5f, .5f, 1.0f};
@@ -681,6 +681,36 @@ void background1()
 	glFlush();
 	glutSwapBuffers();
 }
+
+void mykey(unsigned char key, int x, int y)
+{
+	if (key == 'q' || key == 'Q')
+	{
+		exit(0);
+	}
+
+	if (key == 'h' || key == 'H')
+	{
+		help1 = !help1;
+		glutPostRedisplay();
+	}
+
+	if (key == 's' || key == 'S')
+	{
+
+		if (day)
+		{
+			day = false;
+		}
+		else
+		{
+			day = true;
+		}
+		glutPostRedisplay();
+		glutIdleFunc(background1);
+	}
+}
+
 
 void doFrame(int v)
 {
@@ -726,7 +756,8 @@ void win2()
 	}
 	glColor3f(.0, 1.0, 1.0);
 	glViewport(0, 0, 1700, 750);
-
+	
+	glutKeyboardFunc(mykey);
 	/* Select the projection matrix and reset it then
      setup our view perspective */
 	glMatrixMode(GL_PROJECTION);
@@ -816,6 +847,7 @@ void display()
 	switch (value)
 	{
 	case 1:
+		glutKeyboardFunc(NULL);
 		win1();
 		break;
 	case 2:
@@ -827,6 +859,7 @@ void display()
 	}
 	glFlush();
 }
+/*
 void mykey(unsigned char key, int x, int y)
 {
 	if (key == 'q' || key == 'Q')
@@ -855,6 +888,7 @@ void mykey(unsigned char key, int x, int y)
 		glutIdleFunc(background1);
 	}
 }
+*/
 int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
@@ -871,7 +905,7 @@ int main(int argc, char **argv)
 	createMenu();
 
 	glutTimerFunc(200, doFrame, 0);
-	glutKeyboardFunc(mykey);
+	//glutKeyboardFunc(mykey);
 	// doInit();
 	glutMainLoop();
 	return 0;
