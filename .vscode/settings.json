@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.sqlite": "python",
+        "stdlib.h": "c"
+    }
+}
