@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <GL/glut.h>
+#include <GL/freeglut.h>
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
-// #include <windows.h>
+//#include <windows.h>
 #include <stdarg.h>
 int d = 0;
 static int submenu_id;
@@ -1767,6 +1768,7 @@ void mykey(unsigned char key, int x, int y)
 {
 	if (key == 'q' || key == 'Q')
 	{
+		//glutDestroyWindow(win2);
 		exit(0);
 	}
 
@@ -1799,17 +1801,30 @@ void doFrame(int v)
 	glutTimerFunc(30, doFrame, 0);
 }
 
+void mykey1(unsigned char key, int x, int y)
+{
+	if (key == 'z' || key == 'Z')
+	{
+		//glutLeaveMainLoop();
+		glutHideWindow();
+		//exit(0);
+	}
+}
+
+
 void win1()
 {
 	glClearColor(0.5f, 0.5f, 1, 1);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0, 7, -1, 4, -1, 1);
+	glutKeyboardFunc(mykey1);
 	glMatrixMode(GL_MODELVIEW);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	background();
 	drawText(600, 700, 0, 0, 0, 0, "WIND ENERGY");
 	glFlush();
+	glutDestroyWindow(window);
 }
 
 void win2()
@@ -1860,6 +1875,8 @@ void win3()
 	glFlush();
 }
 
+
+
 void menu(int num)
 {
 	if (num == 0)
@@ -1901,10 +1918,14 @@ void display()
 	switch (value)
 	{
 	case 1:
-		glutKeyboardFunc(NULL);
-		win1();
+		glutCreateWindow("wind");
+		glutDisplayFunc(win1);
+		//win1();
 		break;
 	case 2:
+		//glutCreateWindow("solar");
+		//glutDisplayFunc(win2);
+		//glutDestroyWindow(solar);		
 		win2();
 		break;
 	case 3:
@@ -1914,6 +1935,9 @@ void display()
 	}
 	glFlush();
 }
+
+
+
 int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
@@ -1921,13 +1945,14 @@ int main(int argc, char **argv)
 	glutInitWindowSize(1500, 750);
 	glutCreateWindow("Alternate Sources of Energy");
 	// glClearColor(0.50, 0.88, 0.96, 0);
-
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0, 1500, 0, 750);
 	glutDisplayFunc(display);
 	createMenu();
+	//glutKeyboardFunc(mykey1);
 	glutTimerFunc(200, doFrame, 0);
+	//glutSetOption( GLUT_ACTION_ON_WINDOW_CLOSE,GLUT_ACTION_CONTINUE_EXECUTION ); 
 	glutMainLoop();
 	return 0;
 }
