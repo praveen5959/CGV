@@ -1787,7 +1787,7 @@ void mykey(unsigned char key, int x, int y)
 			day = true;
 		}
 		glutPostRedisplay();
-		glutIdleFunc(background1);
+		//glutIdleFunc(background1);
 	}
 	if (key == 'z' || key == 'Z')
 	{
