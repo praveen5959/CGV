@@ -12,7 +12,9 @@ static int submenu_id;
 static int menu_id;
 static int window;
 static int value = 0;
-
+int window1 = 0;
+int window2 = 0;
+int window3 = 0;
 // windmill constants
 const double PI = 3.141592654;
 int frameNumber = 0;
@@ -1766,11 +1768,6 @@ void background2()
 }
 void mykey(unsigned char key, int x, int y)
 {
-	if (key == 'q' || key == 'Q')
-	{
-		//glutDestroyWindow(win2);
-		exit(0);
-	}
 
 	if (key == 'h' || key == 'H')
 	{
@@ -1792,6 +1789,10 @@ void mykey(unsigned char key, int x, int y)
 		glutPostRedisplay();
 		glutIdleFunc(background1);
 	}
+	if (key == 'z' || key == 'Z')
+	{
+		glutHideWindow();
+	}
 }
 
 void doFrame(int v)
@@ -1805,12 +1806,9 @@ void mykey1(unsigned char key, int x, int y)
 {
 	if (key == 'z' || key == 'Z')
 	{
-		//glutLeaveMainLoop();
 		glutHideWindow();
-		//exit(0);
 	}
 }
-
 
 void win1()
 {
@@ -1824,7 +1822,6 @@ void win1()
 	background();
 	drawText(600, 700, 0, 0, 0, 0, "WIND ENERGY");
 	glFlush();
-	glutDestroyWindow(window);
 }
 
 void win2()
@@ -1848,6 +1845,7 @@ void win2()
 	glViewport(0, 0, 1700, 750);
 
 	glutKeyboardFunc(mykey);
+	// glutKeyboardFunc(mykey1);
 	/* Select the projection matrix and reset it then
      setup our view perspective */
 	glMatrixMode(GL_PROJECTION);
@@ -1870,41 +1868,63 @@ void win3()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glViewport(0, 0, 5100, 1750);
+	glViewport(0, 0, 1750, 750);
+	glutKeyboardFunc(mykey1);
 	background2();
 	glFlush();
 }
-
-
-
-void menu(int num)
+void mainKey(unsigned char key, int x, int y)
 {
-	if (num == 0)
+	if (key == '1')
 	{
-		glutDestroyWindow(window);
+		window1 = glutCreateWindow("wind");
+		glutDisplayFunc(win1);
+	}
+	else if (key == '2')
+	{
+		window2 = glutCreateWindow("Solar");
+		glutDisplayFunc(win2);
+	}
+	else if (key == '3')
+	{
+		window3 = glutCreateWindow("Nuclear");
+		glutDisplayFunc(win3);
+	}
+	else if (key == 'q' || key == 'Q')
+	{
+		glutLeaveMainLoop();
 		exit(0);
 	}
-	else
-	{
-		value = num;
-	}
 }
+// void menu(int num)
+// {
+// 	if (num == 0)
+// 	{
+// 		glutDestroyWindow(window);
+// 		exit(0);
+// 	}
+// 	else
+// 	{
+// 		value = num;
+// 	}
+// }
 
-void createMenu(void)
-{
-	menu_id = glutCreateMenu(menu);
-	glutAddMenuEntry("Wind Energy", 1);
-	glutAddMenuEntry("Solar Energy", 2);
-	glutAddMenuEntry("Nuclear Energy", 3);
-	glutAddMenuEntry("Quit", 0);
-	glutAttachMenu(GLUT_RIGHT_BUTTON);
-}
+// void createMenu(void)
+// {
+// 	menu_id = glutCreateMenu(menu);
+// 	glutAddMenuEntry("Wind Energy", 1);
+// 	glutAddMenuEntry("Solar Energy", 2);
+// 	glutAddMenuEntry("Nuclear Energy", 3);
+// 	glutAddMenuEntry("Quit", 0);
+// 	glutAttachMenu(GLUT_RIGHT_BUTTON);
+// }
 
 void display()
 {
 	glClearColor(1.0, 1.0, 1.0, 0.0);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glutDestroyWindow(window1);
 	drawText(500, 650, 1, 0, 0.2, d, "PROJECT THEME: ");
 	drawText(750, 650, 0.8, 0, 0.2, d, "HUMAN AND NATURE INTERACTION");
 	drawText(500, 600, 1, 0, 0.2, d, "PROJECT TITLE: ");
@@ -1915,28 +1935,29 @@ void display()
 	drawText(600, 450, 0.5, 0, 0.1, d, "(1BI16CS105)");
 	drawText(500.0, 350.0, 1, 1, 1, d, "UNDER THE GUIDENCE OF");
 	drawText(500.0, 230, 1, 1, 0, d, "BIT, Bangalore");
-	switch (value)
-	{
-	case 1:
-		glutCreateWindow("wind");
-		glutDisplayFunc(win1);
-		//win1();
-		break;
-	case 2:
-		//glutCreateWindow("solar");
-		//glutDisplayFunc(win2);
-		//glutDestroyWindow(solar);		
-		win2();
-		break;
-	case 3:
-		glutKeyboardFunc(NULL);
-		win3();
-		break;
-	}
+
+	// switch (value)
+	// {
+	// case 1:
+
+	// 	window1 = glutCreateWindow("wind");
+	// 	glutDisplayFunc(win1);
+	// 	glutDestroyMenu(menu_id);
+	// 	//win1();
+	// 	break;
+	// case 2:
+	// 	// glutDestroyWindow(window1);
+	// 	glutCreateWindow("solar");
+	// 	glutDisplayFunc(win2);
+	// 	// win2();
+	// 	break;
+	// case 3:
+	// 	glutKeyboardFunc(NULL);
+	// 	win3();
+	// 	break;
+	// }
 	glFlush();
 }
-
-
 
 int main(int argc, char **argv)
 {
@@ -1948,11 +1969,11 @@ int main(int argc, char **argv)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0, 1500, 0, 750);
+	// createMenu();
 	glutDisplayFunc(display);
-	createMenu();
-	//glutKeyboardFunc(mykey1);
+	glutKeyboardFunc(mainKey);
 	glutTimerFunc(200, doFrame, 0);
-	//glutSetOption( GLUT_ACTION_ON_WINDOW_CLOSE,GLUT_ACTION_CONTINUE_EXECUTION ); 
+	//glutSetOption( GLUT_ACTION_ON_WINDOW_CLOSE,GLUT_ACTION_CONTINUE_EXECUTION );
 	glutMainLoop();
 	return 0;
 }
