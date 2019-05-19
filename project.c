@@ -898,15 +898,15 @@ void drawSolarPanel(float x, float y, float z)
 
 	//Top panel
 	glPushMatrix();
-	glTranslatef(5, 0, -15);
+	glTranslatef(5, -1, -8);
 	glRotatef(45, 1, 0, 0);
 	glScaled(1, 2, 0.2);
-	glColor3f(0.3, 0.3, 0.3);
+	glColor3f(0.7, 0.7, 0.7);
 	glutSolidCube(1);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(5, 0, -14.5);
+	glTranslatef(5, -1, -7.5);
 	glRotatef(45, 1, 0, 0);
 	glScaled(.5, 2, 0);
 	glColor3f(1, 1, 0);
@@ -915,7 +915,7 @@ void drawSolarPanel(float x, float y, float z)
 
 	//horizontal wire frame on solar
 	glPushMatrix();
-	glTranslatef(4.9, 0, -14.5);
+	glTranslatef(4.9, -1, -7.5);
 	glRotatef(45, 1, 0, 0);
 	glScaled(1, 1, 0);
 	glColor3f(1, 1, 0);
@@ -924,15 +924,33 @@ void drawSolarPanel(float x, float y, float z)
 
 	//Stand
 
-	glPushMatrix();
+	/*glPushMatrix();
 	glTranslatef(5.5, -1, -16);
 	glScaled(0.1, 2, 0.2);
 	glColor3f(0, 0.3, 0.3);
 	glutSolidCube(1);
 	glPopMatrix();
-
+*/
 	glPopMatrix();
 }
+
+void drawSun1()
+{
+	int i;
+	glColor3f(1, 1, 0);
+	for (i = 0; i < 13; i++)
+	{								  // Draw 13 rays, with different rotations.
+		glRotatef(360 / 13, 0, 0, 1); // Note that the rotations accumulate!
+		glBegin(GL_LINES);
+		glVertex2f(0, 0);
+		glVertex2f(6.0f, 0);
+		glEnd();
+	}
+	glutWireSphere(5,75,75);
+	//drawDisk(0.5);
+	glColor3f(0, 0, 0);
+}
+
 
 void draw()
 {
@@ -958,7 +976,8 @@ void draw()
 	{
 		glColor3f(1, 1, 1);
 	}
-	glutSolidSphere(5, 100, 100);
+	drawSun1();
+	//glutSolidSphere(5, 100, 100);
 	glPopMatrix();
 
 	glPushMatrix();
@@ -983,7 +1002,8 @@ void draw()
 	}
 
 	//draw power station.
-	stroke_output(0.8, 1.8, "Power Station");
+	stroke_output(0.8, 1.8, "POWER STATION");
+	stroke_output(1.2, -1.3, "SOLAR PANEL");
 
 	// transformer
 	glPushMatrix();
@@ -1240,6 +1260,7 @@ void drawSun()
 	drawDisk(0.5);
 	glColor3f(0, 0, 0);
 }
+
 
 void drawWindmill()
 {
@@ -1835,7 +1856,8 @@ void win2()
 
 	if (day)
 	{
-		glClearColor(0.9, 0.9, 0.9, 0.0);
+		glClearColor(0.6,0.8,0.9,0.0);
+		//glClearColor(0.9, 0.9, 0.9, 0.0);
 	}
 	else
 	{
