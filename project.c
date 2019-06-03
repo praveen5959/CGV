@@ -1286,11 +1286,12 @@ void drawCart()
 	glScalef(0.8f, 0.8f, 1);
 	drawWheel();
 	glPopMatrix();
-	glColor3f(1, 0, 0);
+	glColor3f(1, 1, 0.5);
 	glBegin(GL_POLYGON);
 	glVertex2f(-2.5f, 0);
 	glVertex2f(2.5f, 0);
-	glVertex2f(2.5f, 2);
+	glVertex2f(2.5f, 1);
+	glVertex2f(1.5f, 2);
 	glVertex2f(-2.5f, 2);
 	glEnd();
 }
@@ -1356,9 +1357,9 @@ void background()
 {
 	glColor3f(0.8, 0.0, 0.2);
 
-	/* Draw three green triangles to form a ridge of hills in the background */
+	/* Draw three brown triangles to form a ridge of hills in the background */
 
-	glColor3f(0, 0.6f, 0.2f);
+	glColor3f(0.4f, 0.3f, 0.13f);
 	glBegin(GL_POLYGON);
 	glVertex2f(-3, -1);
 	glVertex2f(1.5f, 1.65f);
@@ -1379,11 +1380,11 @@ void background()
 
  glBegin(GL_TRIANGLES);
 
- glVertex2f(8, 2.0f);
+ glVertex2f(5.5f,1.3f);
 
- glVertex2f(7, 1.5f);
+ glVertex2f(6, 1.8f);
 
- glVertex2f(9, 1.5f);
+ glVertex2f(6.5f, 1.3f);
 
  glEnd();
 
@@ -1393,36 +1394,36 @@ void background()
 
  glBegin(GL_POLYGON);
 
- glVertex2f(7, 0.8f);
+ glVertex2f(5.5f, 1.3f);
 
- glVertex2f(9, 0.8f);
+ glVertex2f(6.5, 1.3f);
 
- glVertex2f(9, 0.4f);
+ glVertex2f(6.5f, 0.5f);
 
- glVertex2f(7, 0.4f);
+ glVertex2f(5.5, 0.5f);
 
  glEnd();
 
  // Front Door
 
- glColor3f(0.7, 0.2, 0.9);
+ glColor3f(0.0, 0.0, 1.0);
 
  glBegin(GL_POLYGON);
 
- glVertex2i(150, 250);
+ glVertex2f(5.9f, 0.5f);
 
- glVertex2i(250, 250);
+ glVertex2f(5.9f, 0.9f);
 
- glVertex2i(250, 100);
+ glVertex2f(6.1f, 0.9f);
 
- glVertex2i(150, 100);
+ glVertex2f(6.1f, 0.5f);
 
  glEnd();
 
 
-	/* Draw a bluish-gray rectangle to represent the road. */
+	/* Draw a black rectangle to represent the road. */
 
-	glColor3f(0.4f, 0.4f, 0.5f);
+	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	glVertex2f(0, -0.4f);
 	glVertex2f(7, -0.4f);
