@@ -817,6 +817,55 @@ void help()
 	glPopMatrix();
 }
 
+void home()
+{
+// Top of Front Wall
+
+ glColor3f(1.0, 0.0, 0.0);
+
+ glBegin(GL_TRIANGLES);
+
+ glVertex2i(800, 600);
+
+ glVertex2i(700, 550);
+
+ glVertex2i(900, 550);
+
+ glEnd();
+
+ // Front Wall
+
+ glColor3f(0.7, 0.2, 0.3);
+
+ glBegin(GL_POLYGON);
+
+ glVertex2i(100, 350);
+
+ glVertex2i(300, 350);
+
+ glVertex2i(300, 100);
+
+ glVertex2i(100, 100);
+
+ glEnd();
+
+ // Front Door
+
+ glColor3f(0.7, 0.2, 0.9);
+
+ glBegin(GL_POLYGON);
+
+ glVertex2i(150, 250);
+
+ glVertex2i(250, 250);
+
+ glVertex2i(250, 100);
+
+ glVertex2i(150, 100);
+
+ glEnd();
+}
+
 void drawHouse(int x, int y, int z)
 {
 
@@ -976,7 +1025,8 @@ void draw()
 	{
 		glColor3f(1, 1, 1);
 	}
-	drawSun1();
+	//drawSun1();
+	glutWireSphere(5,75,75);
 	//glutSolidSphere(5, 100, 100);
 	glPopMatrix();
 
@@ -1325,6 +1375,51 @@ void background()
 	glVertex2f(20, -1);
 	glEnd();
 
+	glColor3f(1.0, 0.0, 0.0);
+
+ glBegin(GL_TRIANGLES);
+
+ glVertex2f(8, 2.0f);
+
+ glVertex2f(7, 1.5f);
+
+ glVertex2f(9, 1.5f);
+
+ glEnd();
+
+ // Front Wall
+
+ glColor3f(1.0, 0.0, 0.0);
+
+ glBegin(GL_POLYGON);
+
+ glVertex2f(7, 0.8f);
+
+ glVertex2f(9, 0.8f);
+
+ glVertex2f(9, 0.4f);
+
+ glVertex2f(7, 0.4f);
+
+ glEnd();
+
+ // Front Door
+
+ glColor3f(0.7, 0.2, 0.9);
+
+ glBegin(GL_POLYGON);
+
+ glVertex2i(150, 250);
+
+ glVertex2i(250, 250);
+
+ glVertex2i(250, 100);
+
+ glVertex2i(150, 100);
+
+ glEnd();
+
+
 	/* Draw a bluish-gray rectangle to represent the road. */
 
 	glColor3f(0.4f, 0.4f, 0.5f);
@@ -1378,6 +1473,15 @@ void background()
 	glScaled(0.7, 0.7, 1);
 	drawWindmill();
 	glPopMatrix();
+	
+	//glPushMatrix();
+	//glTranslated(5.2,1.6,0);
+	//glScaled(0.7,0.7,0.7);
+	//home();
+	// Top of Front Wall
+
+ 
+	//glPopMatrix();
 
 	/* Draw the cart.  The drawCart method draws the cart with the center of its base at
 	 * (0,0).  The body of the cart is 5 units long and 2 units high.  A scale is first
