@@ -1376,7 +1376,7 @@ void background()
 	glVertex2f(20, -1);
 	glEnd();
 
-	glColor3f(1.0, 0.0, 0.0);
+	/*glColor3f(1.0, 0.0, 0.0);
 
  glBegin(GL_TRIANGLES);
 
@@ -1419,7 +1419,77 @@ void background()
  glVertex2f(6.1f, 0.5f);
 
  glEnd();
+*/
 
+glColor3f(0.0,0.0,0.0);
+glLineWidth(5.0f);
+glBegin(GL_LINES);
+glVertex2f(4.5f,0.8f);
+glVertex2f(4.5f,1.9f);
+glEnd();
+
+glColor3f(0.0,0.0,0.0);
+glLineWidth(2.0f);
+glBegin(GL_LINES);
+glVertex2f(4.5f,1.8f);
+glVertex2f(7.5f,1.8f);
+glEnd();
+
+glColor3f(0.0,0.0,0.0);
+glLineWidth(2.0f);
+glBegin(GL_LINES);
+glVertex2f(4.5f,1.6f);
+glVertex2f(7.5f,1.6f);
+glEnd();
+
+glColor3f(0.5,0.5,0.5);
+glBegin(GL_POLYGON);
+glVertex2f(2.5f,0.8f);
+glVertex2f(2.5f,1.3f);
+glVertex2f(2.0f,1.3f);
+glVertex2f(2.0f,0.8f);
+glEnd();
+
+glColor3f(0.0,0.0,0.0);
+glLineWidth(2.0f);
+glBegin(GL_LINES);
+glVertex2f(0.75f,1.0f);
+glVertex2f(2.0f,1.1f);
+glEnd();
+
+glColor3f(0.0,0.0,0.0);
+glBegin(GL_LINES);
+glLineWidth(0.1);
+glVertex2f(2.2f,1.7f);
+glVertex2f(2.3f,1.3f);
+glEnd();
+
+glColor3f(0.0,0.0,0.0);
+glBegin(GL_LINES);
+glLineWidth(0.1f);
+glVertex2f(2.5f,1.0f);
+glVertex2f(3.7f,0.9f);
+glEnd();
+
+glColor3f(0.2,0.2,0.2);
+glBegin(GL_LINES);
+glVertex2f(3.7f,1.0f);
+glVertex2f(4.5f,0.9f);
+glEnd();
+
+/*glColor3f(0.0,0.0,0.0);
+glLineWidth(5.0);
+glBegin(GL_LINES);
+glVertex2f(3.5f,0.8f);
+glVertex2f(3.5f,1.9f);
+glEnd();
+
+glColor3f(0.0,0.0,0.0);
+glLineWidth(5.0);
+glBegin(GL_LINES);
+glVertex2f(1.5f,0.8f);
+glVertex2f(1.5f,1.9f);
+glEnd();*/
 
 	/* Draw a black rectangle to represent the road. */
 
@@ -1961,7 +2031,7 @@ void win2()
 
 	if (day)
 	{
-		glClearColor(0.6,0.8,0.9,0.0);
+		glClearColor(0.7,0.7,0.9,0.0);
 		//glClearColor(0.9, 0.9, 0.9, 0.0);
 	}
 	else
