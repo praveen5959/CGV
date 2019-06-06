@@ -819,51 +819,51 @@ void help()
 
 void home()
 {
-// Top of Front Wall
+	// Top of Front Wall
 
- glColor3f(1.0, 0.0, 0.0);
+	glColor3f(1.0, 0.0, 0.0);
 
- glBegin(GL_TRIANGLES);
+	glBegin(GL_TRIANGLES);
 
- glVertex2i(800, 600);
+	glVertex2i(800, 600);
 
- glVertex2i(700, 550);
+	glVertex2i(700, 550);
 
- glVertex2i(900, 550);
+	glVertex2i(900, 550);
 
- glEnd();
+	glEnd();
 
- // Front Wall
+	// Front Wall
 
- glColor3f(0.7, 0.2, 0.3);
+	glColor3f(0.7, 0.2, 0.3);
 
- glBegin(GL_POLYGON);
+	glBegin(GL_POLYGON);
 
- glVertex2i(100, 350);
+	glVertex2i(100, 350);
 
- glVertex2i(300, 350);
+	glVertex2i(300, 350);
 
- glVertex2i(300, 100);
+	glVertex2i(300, 100);
 
- glVertex2i(100, 100);
+	glVertex2i(100, 100);
 
- glEnd();
+	glEnd();
 
- // Front Door
+	// Front Door
 
- glColor3f(0.7, 0.2, 0.9);
+	glColor3f(0.7, 0.2, 0.9);
 
- glBegin(GL_POLYGON);
+	glBegin(GL_POLYGON);
 
- glVertex2i(150, 250);
+	glVertex2i(150, 250);
 
- glVertex2i(250, 250);
+	glVertex2i(250, 250);
 
- glVertex2i(250, 100);
+	glVertex2i(250, 100);
 
- glVertex2i(150, 100);
+	glVertex2i(150, 100);
 
- glEnd();
+	glEnd();
 }
 
 void drawHouse(int x, int y, int z)
@@ -995,11 +995,10 @@ void drawSun1()
 		glVertex2f(6.0f, 0);
 		glEnd();
 	}
-	glutWireSphere(5,75,75);
+	glutWireSphere(5, 75, 75);
 	//drawDisk(0.5);
 	glColor3f(0, 0, 0);
 }
-
 
 void draw()
 {
@@ -1026,7 +1025,7 @@ void draw()
 		glColor3f(1, 1, 1);
 	}
 	//drawSun1();
-	glutWireSphere(5,75,75);
+	glutWireSphere(5, 75, 75);
 	//glutSolidSphere(5, 100, 100);
 	glPopMatrix();
 
@@ -1072,7 +1071,7 @@ void draw()
 		if (grow <= 15000)
 		{
 			grow++;
-			angle += 0.002;
+			angle += 0.02;
 		}
 	}
 	else
@@ -1080,11 +1079,11 @@ void draw()
 		if (grow >= 0)
 		{
 			grow--;
-			angle -= 0.002;
+			angle -= 0.02;
 		}
 	}
 
-	if (grow > 1000)
+	if (grow > 100)
 	{
 
 		glPushMatrix();
@@ -1095,7 +1094,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 2000)
+	if (grow > 200)
 	{
 
 		glPushMatrix();
@@ -1106,7 +1105,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 3000)
+	if (grow > 300)
 	{
 
 		glPushMatrix();
@@ -1117,7 +1116,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 4000)
+	if (grow > 400)
 	{
 
 		glPushMatrix();
@@ -1128,7 +1127,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 5000)
+	if (grow > 500)
 	{
 
 		glPushMatrix();
@@ -1139,7 +1138,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 6000)
+	if (grow > 600)
 	{
 
 		glPushMatrix();
@@ -1150,7 +1149,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 7000)
+	if (grow > 700)
 	{
 
 		glPushMatrix();
@@ -1161,7 +1160,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 8000)
+	if (grow > 800)
 	{
 
 		glPushMatrix();
@@ -1172,7 +1171,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 9000)
+	if (grow > 900)
 	{
 
 		glPushMatrix();
@@ -1183,7 +1182,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 10000)
+	if (grow > 1000)
 	{
 
 		glPushMatrix();
@@ -1194,7 +1193,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 11000)
+	if (grow > 1100)
 	{
 
 		glPushMatrix();
@@ -1205,7 +1204,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 12000)
+	if (grow > 1200)
 	{
 
 		glPushMatrix();
@@ -1216,7 +1215,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 13000)
+	if (grow > 1300)
 	{
 
 		glPushMatrix();
@@ -1227,7 +1226,7 @@ void draw()
 		glPopMatrix();
 	}
 
-	if (grow > 14000)
+	if (grow > 1400)
 	{
 
 		glPushMatrix();
@@ -1312,7 +1311,6 @@ void drawSun()
 	glColor3f(0, 0, 0);
 }
 
-
 void drawWindmill()
 {
 	int i;
@@ -1376,108 +1374,134 @@ void background()
 	glVertex2f(20, -1);
 	glEnd();
 
-	/*glColor3f(1.0, 0.0, 0.0);
+	glColor3f(1.0, 0.0, 0.0);
+	/*
+	glBegin(GL_TRIANGLES);
 
- glBegin(GL_TRIANGLES);
+	glVertex2f(5.5f, 1.0f);
 
- glVertex2f(5.5f,1.3f);
+	glVertex2f(6, 1.5f);
 
- glVertex2f(6, 1.8f);
+	glVertex2f(6.5f, 1.0f);
 
- glVertex2f(6.5f, 1.3f);
+	glEnd();
 
- glEnd();
+	// Front Wall
 
- // Front Wall
+	glColor3f(1.0, 0.0, 0.0);
 
- glColor3f(1.0, 0.0, 0.0);
+	glBegin(GL_POLYGON);
 
- glBegin(GL_POLYGON);
+	glVertex2f(5.5f, 1.0f);
 
- glVertex2f(5.5f, 1.3f);
+	glVertex2f(6.5, 1.0f);
 
- glVertex2f(6.5, 1.3f);
+	glVertex2f(6.5f, 0.5f);
 
- glVertex2f(6.5f, 0.5f);
+	glVertex2f(5.5, 0.5f);
 
- glVertex2f(5.5, 0.5f);
+	glEnd();
 
- glEnd();
+	// Front Door
 
- // Front Door
+	glColor3f(0.0, 0.0, 1.0);
 
- glColor3f(0.0, 0.0, 1.0);
+	glBegin(GL_POLYGON);
 
- glBegin(GL_POLYGON);
+	glVertex2f(5.9f, 0.5f);
 
- glVertex2f(5.9f, 0.5f);
+	glVertex2f(5.9f, 0.75f);
 
- glVertex2f(5.9f, 0.9f);
+	glVertex2f(6.1f, 0.75f);
 
- glVertex2f(6.1f, 0.9f);
+	glVertex2f(6.1f, 0.5f);
 
- glVertex2f(6.1f, 0.5f);
-
- glEnd();
+	glEnd();
 */
+	// Electric ploe
+	glColor3f(0.0, 0.0, 0.0);
+	glLineWidth(5.0f);
+	glBegin(GL_LINES);
+	glVertex2f(4.5f, 0.8f);
+	glVertex2f(4.5f, 1.9f);
+	glEnd();
+	// Electric Line 1
+	glColor3f(0.0, 0.0, 0.0);
+	glLineWidth(2.0f);
+	glBegin(GL_LINES);
+	glVertex2f(4.5f, 1.8f);
+	glVertex2f(7.5f, 1.8f);
+	glEnd();
+	// Electric Line 2
+	glColor3f(0.0, 0.0, 0.0);
+	glLineWidth(2.0f);
+	glBegin(GL_LINES);
+	glVertex2f(4.5f, 1.7f);
+	glVertex2f(7.5f, 1.7f);
+	glEnd();
+	// Electric Line 3
+	glColor3f(0.0, 0.0, 0.0);
+	glLineWidth(2.0f);
+	glBegin(GL_LINES);
+	glVertex2f(4.5f, 1.6f);
+	glVertex2f(7.5f, 1.6f);
+	glEnd();
+	// Transformer
+	glColor3f(0.5, 0.5, 0.5);
+	glBegin(GL_POLYGON);
+	glVertex2f(2.5f, 0.8f);
+	glVertex2f(2.5f, 1.3f);
+	glVertex2f(2.0f, 1.3f);
+	glVertex2f(2.0f, 0.8f);
+	glEnd();
+	// Mesh
+	glColor3f(0.0, 0.0, 0.0);
+	glLineWidth(1.0f);
+	glBegin(GL_LINES);
+	glVertex2f(2.05f, 1.35f);
+	glVertex2f(2.05f, 0.75f);
+	glVertex2f(2.1f, 1.35f);
+	glVertex2f(2.1f, 0.75f);
+	glVertex2f(2.2f, 1.35f);
+	glVertex2f(2.2f, 0.75f);
+	glVertex2f(2.25f, 1.35f);
+	glVertex2f(2.25f, 0.75f);
+	glVertex2f(2.3f, 1.35f);
+	glVertex2f(2.3f, 0.75f);
+	glVertex2f(2.4f, 1.35f);
+	glVertex2f(2.4f, 0.75f);
+	glVertex2f(2.45f, 1.35f);
+	glVertex2f(2.45f, 0.75f);
+	glEnd();
 
-glColor3f(0.0,0.0,0.0);
-glLineWidth(5.0f);
-glBegin(GL_LINES);
-glVertex2f(4.5f,0.8f);
-glVertex2f(4.5f,1.9f);
-glEnd();
+	glColor3f(0.0, 0.0, 0.0);
+	glLineWidth(2.0f);
+	glBegin(GL_LINES);
+	glVertex2f(0.75f, 1.0f);
+	glVertex2f(2.0f, 1.1f);
+	glEnd();
 
-glColor3f(0.0,0.0,0.0);
-glLineWidth(2.0f);
-glBegin(GL_LINES);
-glVertex2f(4.5f,1.8f);
-glVertex2f(7.5f,1.8f);
-glEnd();
+	glColor3f(0.0, 0.0, 0.0);
+	glBegin(GL_LINES);
+	glLineWidth(0.1);
+	glVertex2f(2.2f, 1.7f);
+	glVertex2f(2.3f, 1.3f);
+	glEnd();
 
-glColor3f(0.0,0.0,0.0);
-glLineWidth(2.0f);
-glBegin(GL_LINES);
-glVertex2f(4.5f,1.6f);
-glVertex2f(7.5f,1.6f);
-glEnd();
+	glColor3f(0.0, 0.0, 0.0);
+	glBegin(GL_LINES);
+	glLineWidth(0.1f);
+	glVertex2f(2.5f, 1.0f);
+	glVertex2f(3.7f, 0.9f);
+	glEnd();
 
-glColor3f(0.5,0.5,0.5);
-glBegin(GL_POLYGON);
-glVertex2f(2.5f,0.8f);
-glVertex2f(2.5f,1.3f);
-glVertex2f(2.0f,1.3f);
-glVertex2f(2.0f,0.8f);
-glEnd();
+	glColor3f(0.2, 0.2, 0.2);
+	glBegin(GL_LINES);
+	glVertex2f(3.7f, 1.0f);
+	glVertex2f(4.5f, 0.9f);
+	glEnd();
 
-glColor3f(0.0,0.0,0.0);
-glLineWidth(2.0f);
-glBegin(GL_LINES);
-glVertex2f(0.75f,1.0f);
-glVertex2f(2.0f,1.1f);
-glEnd();
-
-glColor3f(0.0,0.0,0.0);
-glBegin(GL_LINES);
-glLineWidth(0.1);
-glVertex2f(2.2f,1.7f);
-glVertex2f(2.3f,1.3f);
-glEnd();
-
-glColor3f(0.0,0.0,0.0);
-glBegin(GL_LINES);
-glLineWidth(0.1f);
-glVertex2f(2.5f,1.0f);
-glVertex2f(3.7f,0.9f);
-glEnd();
-
-glColor3f(0.2,0.2,0.2);
-glBegin(GL_LINES);
-glVertex2f(3.7f,1.0f);
-glVertex2f(4.5f,0.9f);
-glEnd();
-
-/*glColor3f(0.0,0.0,0.0);
+	/*glColor3f(0.0,0.0,0.0);
 glLineWidth(5.0);
 glBegin(GL_LINES);
 glVertex2f(3.5f,0.8f);
@@ -1544,14 +1568,13 @@ glEnd();*/
 	glScaled(0.7, 0.7, 1);
 	drawWindmill();
 	glPopMatrix();
-	
+
 	//glPushMatrix();
 	//glTranslated(5.2,1.6,0);
 	//glScaled(0.7,0.7,0.7);
 	//home();
 	// Top of Front Wall
 
- 
 	//glPopMatrix();
 
 	/* Draw the cart.  The drawCart method draws the cart with the center of its base at
@@ -2031,7 +2054,7 @@ void win2()
 
 	if (day)
 	{
-		glClearColor(0.7,0.7,0.9,0.0);
+		glClearColor(0.7, 0.7, 0.9, 0.0);
 		//glClearColor(0.9, 0.9, 0.9, 0.0);
 	}
 	else
@@ -2093,28 +2116,6 @@ void mainKey(unsigned char key, int x, int y)
 		exit(0);
 	}
 }
-// void menu(int num)
-// {
-// 	if (num == 0)
-// 	{
-// 		glutDestroyWindow(window);
-// 		exit(0);
-// 	}
-// 	else
-// 	{
-// 		value = num;
-// 	}
-// }
-
-// void createMenu(void)
-// {
-// 	menu_id = glutCreateMenu(menu);
-// 	glutAddMenuEntry("Wind Energy", 1);
-// 	glutAddMenuEntry("Solar Energy", 2);
-// 	glutAddMenuEntry("Nuclear Energy", 3);
-// 	glutAddMenuEntry("Quit", 0);
-// 	glutAttachMenu(GLUT_RIGHT_BUTTON);
-// }
 
 void display()
 {
@@ -2126,33 +2127,15 @@ void display()
 	drawText(750, 650, 0.8, 0, 0.2, d, "HUMAN AND NATURE INTERACTION");
 	drawText(500, 600, 1, 0, 0.2, d, "PROJECT TITLE: ");
 	drawText(750, 600, 0.8, 0, 0.2, d, "ALTERNATE SOURCES OF ENERGY");
-	drawText(600, 550, 0.5, 0, 0.1, d, "PRAVEEN K B");
-	drawText(600, 520, 0.5, 0, 0.1, d, "(1BI16CS105)");
-	drawText(600, 480, 0.5, 0, 0.1, d, "PRATEEK J");
-	drawText(600, 450, 0.5, 0, 0.1, d, "(1BI16CS105)");
+	drawText(600, 510, 0.5, 0, 0.1, d, "PRAVEEN K B");
+	drawText(600, 490, 0.5, 0, 0.1, d, "(1BI16CS105)");
+	drawText(600, 450, 0.5, 0, 0.1, d, "PRATEEK J");
+	drawText(600, 430, 0.5, 0, 0.1, d, "(1BI16CS103)");
 	drawText(500.0, 350.0, 1, 1, 1, d, "UNDER THE GUIDENCE OF");
-	drawText(500.0, 230, 1, 1, 0, d, "BIT, Bangalore");
-
-	// switch (value)
-	// {
-	// case 1:
-
-	// 	window1 = glutCreateWindow("wind");
-	// 	glutDisplayFunc(win1);
-	// 	glutDestroyMenu(menu_id);
-	// 	//win1();
-	// 	break;
-	// case 2:
-	// 	// glutDestroyWindow(window1);
-	// 	glutCreateWindow("solar");
-	// 	glutDisplayFunc(win2);
-	// 	// win2();
-	// 	break;
-	// case 3:
-	// 	glutKeyboardFunc(NULL);
-	// 	win3();
-	// 	break;
-	// }
+	drawText(500.0, 230, 1, 0, 0, d, "BIT, Bangalore");
+	drawText(150.0, 100, 0, 0, 0, d, "Press 1 -> Wind Energy");
+	drawText(600.0, 100, 0, 0, 0, d, "Press 2 -> Solar Energy");
+	drawText(1000.0, 100, 0, 0, 0, d, "Press q or Q -> Exit");
 	glFlush();
 }
 
