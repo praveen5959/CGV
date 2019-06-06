@@ -1053,7 +1053,7 @@ void draw()
 	//draw power station.
 	stroke_output(0.8, 1.8, "POWER STATION");
 	stroke_output(1.2, -1.3, "SOLAR PANEL");
-
+	stroke_output(-4.0, -3.0, "Press S -> Toggle Day/Night");
 	// transformer
 	glPushMatrix();
 	glTranslatef(15, 5, -100);
@@ -2054,8 +2054,8 @@ void win2()
 
 	if (day)
 	{
-		glClearColor(0.7, 0.7, 0.9, 0.0);
-		//glClearColor(0.9, 0.9, 0.9, 0.0);
+		// glClearColor(0.7, 0.7, 0.9, 0.0);
+		glClearColor(0.9, 0.9, 0.9, 0.0);
 	}
 	else
 	{
@@ -2079,6 +2079,7 @@ void win2()
 	glEnable(GL_COLOR_MATERIAL);
 	glDepthFunc(GL_LEQUAL);
 	background1();
+	glColor3f(1.0, 1.0, 1.0);
 	drawText(600, 700, 0, 0, 0, 0, "Solar ENERGY");
 	glFlush();
 }
@@ -2105,11 +2106,11 @@ void mainKey(unsigned char key, int x, int y)
 		window2 = glutCreateWindow("Solar");
 		glutDisplayFunc(win2);
 	}
-	else if (key == '3')
-	{
-		window3 = glutCreateWindow("Nuclear");
-		glutDisplayFunc(win3);
-	}
+	// else if (key == '3')
+	// {
+	// 	window3 = glutCreateWindow("Nuclear");
+	// 	glutDisplayFunc(win3);
+	// }
 	else if (key == 'q' || key == 'Q')
 	{
 		glutLeaveMainLoop();
